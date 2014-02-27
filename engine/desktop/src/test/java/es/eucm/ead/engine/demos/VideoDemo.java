@@ -36,6 +36,8 @@
  */
 package es.eucm.ead.engine.demos;
 
+import uk.co.caprica.vlcj.runtime.RuntimeUtil;
+
 import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Gdx;
 import com.sun.jna.NativeLibrary;
@@ -49,8 +51,8 @@ import es.eucm.ead.engine.EngineDesktop;
 public class VideoDemo {
 
 	public static void main(String args[]) {
-		NativeLibrary.addSearchPath("libvlc", "lib/vlc-2.0.8");
-		NativeLibrary.addSearchPath("libvlccore", "lib/vlc-2.0.8");
+		NativeLibrary.addSearchPath(RuntimeUtil.getLibVlcLibraryName(), "lib/win32-amd64");
+//		NativeLibrary.addSearchPath("libvlccore", "lib/vlc-2.0.8");
 		EngineDesktop engine = new EngineDesktop(1066, 600);
 		engine.run("videodemo", true);
 		Gdx.app.setLogLevel(Application.LOG_DEBUG);
